@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function Page() {
     return (
-        <h1>Hello World</h1>
+        <>
+            <h1>Welcome, to Bali Kitchen Club</h1>
+        </>
     );
 }

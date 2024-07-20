@@ -18,6 +18,14 @@ export async function GET(
     },
   });
 
+  if (!menu) {
+    return Response.json({
+      error: true,
+      message: "Menu not found",
+      data: null,
+    });
+  }
+
   return Response.json({
     error: false,
     message: "Fetched menu successfully",

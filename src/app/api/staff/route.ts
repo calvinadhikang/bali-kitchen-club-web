@@ -16,4 +16,10 @@ export async function GET(request: NextRequest) {
   //   message: "Fetched staff successfully",
   //   data: staff,
   // });
+
+  return Response.json({
+    error: false,
+    message: "Fetched staff successfully",
+    data: [],
+  });
 }

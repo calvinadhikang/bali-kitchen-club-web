@@ -19,13 +19,14 @@ model Menu {
   name        String
   description String
   price       Int
+  stock       Int       @default(0)
   image       String?
   category    Category  @relation(fields: [categoryId], references: [id])
   categoryId  Int
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
   deletedAt   DateTime?
-  Stock       Stock[]
+  stockData   Stock[]
 }
 
 model Category {
@@ -64,7 +65,7 @@ model Stock {
   menuId      Int
   quantity    Int
   type        String
-  reference   String
+  reference   String //transaksi / stok awal
   referenceId Int?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt

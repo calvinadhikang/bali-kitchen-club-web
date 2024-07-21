@@ -15,6 +15,7 @@ export async function GET(
           name: true,
         },
       },
+      stockData: true,
     },
   });
 

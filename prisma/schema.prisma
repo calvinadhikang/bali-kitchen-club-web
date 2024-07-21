@@ -25,6 +25,7 @@ model Menu {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
   deletedAt   DateTime?
+  Stock       Stock[]
 }
 
 model Category {
@@ -45,4 +46,27 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
   deletedAt DateTime?
+}
+
+model Sesi {
+  id        Int       @id @default(autoincrement())
+  name      String
+  startTime DateTime
+  endTime   DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+}
+
+model Stock {
+  id          Int       @id @default(autoincrement())
+  menu        Menu      @relation(fields: [menuId], references: [id])
+  menuId      Int
+  quantity    Int
+  type        String
+  reference   String
+  referenceId Int?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  deletedAt   DateTime?
 }

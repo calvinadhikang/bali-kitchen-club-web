@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { db } from "@/src/utils/api";
+import { error } from "console";
 
 export async function GET() {
   const categories = await db.category.findMany({
@@ -9,6 +10,7 @@ export async function GET() {
   });
 
   return Response.json({
+    error: false,
     message: "Fetched categories successfully",
     data: categories,
   });

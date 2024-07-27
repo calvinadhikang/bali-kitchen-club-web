@@ -1,7 +1,6 @@
-import { NextRequest } from "next/server";
 import { db } from "@/src/utils/api";
 
-export async function GET() {
+export async function GET(request: Request) {
   const menus = await db.menu.findMany({
     include: {
       category: {

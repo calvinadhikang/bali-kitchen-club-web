@@ -1,6 +1,7 @@
 import { db } from "@/src/utils/api";
 import { NextRequest } from "next/server";
 
+export const revalidate = 0;
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }

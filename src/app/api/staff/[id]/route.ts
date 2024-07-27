@@ -1,7 +1,7 @@
 import { db } from "@/src/utils/api";
 
 export const revalidate = 0;
-export default async function GET(
+export async function GET(
   request: Request,
   { params }: { params: { id: string } }
 ) {

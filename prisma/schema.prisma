@@ -47,6 +47,7 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
   deletedAt DateTime?
+  Stock     Stock[]
 }
 
 model Sesi {
@@ -67,6 +68,8 @@ model Stock {
   type        String
   reference   String //transaksi / stok awal
   referenceId Int?
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
   deletedAt   DateTime?

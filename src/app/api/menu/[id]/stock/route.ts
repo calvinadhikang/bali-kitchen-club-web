@@ -23,7 +23,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const { newQuantity }: { newQuantity: number } = await request.json();
+  const { newQuantity, userId } = await request.json();
 
   const oldMenu = await db.menu.findUnique({
     where: {
@@ -51,6 +51,7 @@ export async function POST(
       quantity: newQuantity,
       reference: "Stock update",
       type: newQuantity > 0 ? STOCK_STATUS.MASUK : STOCK_STATUS.KELUAR,
+      userId,
     },
   });
 
